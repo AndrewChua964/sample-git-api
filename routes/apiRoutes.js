@@ -4,14 +4,14 @@ const db = require('../models');
 
 //Retrieves student information
 router.get('/all', (req, res) => {
-    db.Info.findAll().then(info => res.send(info));
+    db.sampleInfo.findAll().then(info => res.send(info));
 });
 
 module.exports = router;
 
 //Retrieves single student information
 router.get('/find/:id', (req, res) => {
-    db.Info.findAll({
+    db.sampleInfo.findAll({
         where: {
             student_id: req.params.id
         }
@@ -20,7 +20,7 @@ router.get('/find/:id', (req, res) => {
 
 //Create new student
 router.post('/new', (req, res) => {
-    db.Info.create({
+    db.sampleInfo.create({
         student_id: req.body.student_id,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -32,7 +32,7 @@ router.post('/new', (req, res) => {
 
 //Deletes student
 router.delete('/delete/:id', (req, res) => {
-    db.Info.destroy({
+    db.sampleInfo.destroy({
         where: {
             student_id: req.params.id
         }
@@ -41,7 +41,7 @@ router.delete('/delete/:id', (req, res) => {
 
 //Edit entry
 router.put('/edit/:id', (req,res) => {
-    db.Info.update(
+    db.sampleInfo.update(
         {
             student_id: req.body.student_id,
             first_name: req.body.first_name,
